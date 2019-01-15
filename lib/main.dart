@@ -1,7 +1,8 @@
 import 'dart:convert';
-import 'package:blog/screens/Home_screen.dart';
+import 'package:blog/screens/home_screen.dart';
+import 'package:blog/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:blog/screens/Login_screen.dart';
+import 'package:blog/screens/login_screen.dart';
 
 void main() async {
 
@@ -44,7 +45,7 @@ class MyAppState extends State<MyApp> {
             );
           case '/signup':
             return MaterialPageRoute(
-                builder: (_) => LoginScreen(),
+                builder: (_) => SignupScreen(),
                 settings: settings
             );
         }

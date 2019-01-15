@@ -12,6 +12,7 @@ class CustomOutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlineButton(
+        highlightedBorderColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
         onPressed: onPressed,
         textColor: Colors.white,

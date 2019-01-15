@@ -1,44 +1,44 @@
+import 'package:blog/widgets/custom_outline_button.dart';
+import 'package:blog/widgets/custom_raised_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key, this.title}) : super(key: key);
-
-  final String title;
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  Color gradientStart = Colors.white;
-  Color gradientEnd = Colors.white30;
+class _HomeScreenState extends State<HomeScreen> {
+  Color gradientStart = Colors.deepPurple[700];
+  Color gradientEnd = Colors.purple[500];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
-      body:  Container(
+      body: new Container(
         child: Column(children: <Widget>[
           Flexible(
-              flex: 2,
+              flex: 4,
               child: Center(
                 child: Text(
                   'Blog',
                   style: TextStyle(
                       fontFamily: 'LaserPlain',
                       fontSize: 55,
-                      color: Colors.purple[500]),
+                      color: Colors.white),
                 ),
               )),
           Flexible(
-              flex: 3,
+              flex: 2,
               child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 50.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      CustomRaisedButton(),
+                      CustomOutlineButton(text: 'SIGN UP', onPressed: ()=>Navigator.pushNamed(context, '/signup')),
+                      CustomRaisedButton(text: 'LOGIN', onPressed: ()=>Navigator.pushNamed(context, '/login')),
                     ],
                   )))
         ]),
@@ -61,32 +61,3 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class CustomOutlineButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new OutlineButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
-        onPressed: () => {},
-        textColor: Colors.white,
-        color: Colors.white,
-        padding: const EdgeInsets.all(8.0),
-        child: new Text(
-          "SIGN UP",
-        ));
-  }
-}
-
-class CustomRaisedButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new RaisedButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
-        onPressed: () => {},
-        textColor: Colors.deepPurple[700],
-        color: Colors.white,
-        padding: const EdgeInsets.all(8.0),
-        child: new Text(
-          "LOGIN",
-        ));
-  }
-}
